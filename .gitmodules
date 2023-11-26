@@ -1,0 +1,3 @@
+[submodule "external_dependencies/DHL-LinAlg"]
+	path = external_dependencies/DHL-LinAlg
+	url = https://github.com/DHL-ASC/DHL-LinAlg.git
