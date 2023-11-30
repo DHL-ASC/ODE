@@ -1,7 +1,20 @@
-# Prerequisites
-*.d
+/build/*
+/_skbuild/*
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
+/.vscode/*
+.vscode/*
+
+# examples timing output
+/benchmark/*.csv
+
+**/*.trace
+*.trace
 
 # Compiled Object files
+**/.DS_Store
 *.slo
 *.lo
 *.o
@@ -30,3 +43,46 @@
 *.exe
 *.out
 *.app
+
+**/cmake-build-debug
+**/CMakeCache.txt
+**/cmake_install.cmake
+**/install_manifest.txt
+**/CMakeFiles/
+**/CTestTestfile.cmake
+**/Makefile
+**/*.cbp
+**/CMakeScripts
+**/compile_commands.json
+
+include/divisible/*
+
+
+## Local 
+
+.idea/*.xml
+
+build/**/*
+
+
+
+## Python
+
+env/*
+venv/*
+.env/*
+.venv/*
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+*.egg-info/
+.installed.cfg
+*.egg
+.ipynb_checkpoints
+
+# Sphinx documentation
+docs/_build/
+*.db
