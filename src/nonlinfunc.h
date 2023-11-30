@@ -20,11 +20,11 @@ namespace ASC_ode
   };
 
 
-  class IdenticFunction : public NonlinearFunction
+  class IdentityFunction : public NonlinearFunction
   {
     size_t n;
   public:
-    IdenticFunction (size_t _n) : n(_n) { } 
+    IdentityFunction (size_t _n) : n(_n) { } 
     size_t DimX() const override { return n; }
     size_t DimF() const override { return n; }
     void Evaluate (VectorView<double> x, VectorView<double> f) const override

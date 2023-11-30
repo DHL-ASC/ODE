@@ -22,7 +22,7 @@ int main()
   Vector<> ddx(2*mss.Masses().size());  
 
   auto mss_func = make_shared<MSS_Function<2>> (mss);
-  auto mass = make_shared<IdenticFunction> (x.Size());      
+  auto mass = make_shared<IdentityFunction> (x.Size());      
 
   mss.GetState (x, dx, ddx);
   

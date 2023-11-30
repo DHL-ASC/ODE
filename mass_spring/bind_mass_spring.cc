@@ -108,7 +108,7 @@ PYBIND11_MODULE(mass_spring, m) {
       mss.GetState (x, dx, ddx);
       
       auto mss_func = make_shared<MSS_Function<3>> (mss);
-      auto mass = make_shared<IdenticFunction> (x.Size());      
+      auto mass = make_shared<IdentityFunction> (x.Size());      
       
       SolveODE_Alpha(tend, steps, 0.8, x, dx, ddx, mss_func, mass);
 

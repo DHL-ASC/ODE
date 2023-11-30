@@ -18,7 +18,7 @@ namespace ASC_ode
   {
     double dt = tend/steps;
     auto yold = make_shared<ConstantFunction>(y);
-    auto ynew = make_shared<IdenticFunction>(y.Size());
+    auto ynew = make_shared<IdentityFunction>(y.Size());
     auto equ = ynew-yold - dt * rhs;
 
     double t = 0;
@@ -58,7 +58,7 @@ namespace ASC_ode
     auto aold = make_shared<ConstantFunction>(x);
     rhs->Evaluate (xold->Get(), aold->Get());
     
-    auto anew = make_shared<IdenticFunction>(a.Size());
+    auto anew = make_shared<IdentityFunction>(a.Size());
     auto vnew = vold + dt*((1-gamma)*aold+gamma*anew);
     auto xnew = xold + dt*vold + dt*dt/2 * ((1-2*beta)*aold+2*beta*anew);    
 
@@ -104,7 +104,7 @@ namespace ASC_ode
     auto aold = make_shared<ConstantFunction>(ddx);
     // rhs->Evaluate (xold->Get(), aold->Get()); // solve with M ???
     
-    auto anew = make_shared<IdenticFunction>(a.Size());
+    auto anew = make_shared<IdentityFunction>(a.Size());
     auto vnew = vold + dt*((1-gamma)*aold+gamma*anew);
     auto xnew = xold + dt*vold + dt*dt/2 * ((1-2*beta)*aold+2*beta*anew);    
 

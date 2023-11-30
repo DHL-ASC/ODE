@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/Users/joachim/texjs/lva/ws2324/ScientificComputing/experiments/ASC-ODE/build/mass_spring')
+sys.path.append('/Users/joachim/texjs/lva/ws2324/ScientificComputing/ASC-ODE/build/mass_spring')
 
 from mass_spring import *
 import ngsolve.bla
