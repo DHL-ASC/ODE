@@ -3,7 +3,6 @@
 
 #include <functional>
 #include <exception>
-#include <calcinverse.hpp>
 
 #include "Newton.h"
 

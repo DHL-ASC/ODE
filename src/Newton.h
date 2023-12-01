@@ -2,7 +2,7 @@
 #define Newton_h
 
 #include "nonlinfunc.h"
-
+#include <math.h>
 namespace ASC_ode
 {
 
@@ -12,16 +12,16 @@ namespace ASC_ode
   {
     Vector<> res(func->DimF());
     Matrix<> fprime(func->DimF(), func->DimX());
+    Matrix<> invfprime(func->DimF(), func->DimX());
 
     for (int i = 0; i < maxsteps; i++)
       {
         func->Evaluate(x, res);
-        // cout << "|res| = " << L2Norm(res) << endl;
         func->EvaluateDeriv(x, fprime);
-        CalcInverse(fprime);
-        x -= fprime*res;
+        invfprime = fprime.Inverse();
+        x -= invfprime*res;
 
-        double err= L2Norm(res);
+        double err= sqrt(L2NormSquared(res));
         if (callback)
           callback(i, err, x);
         if (err < tol) return;

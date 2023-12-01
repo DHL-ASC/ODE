@@ -8,6 +8,7 @@
 namespace ASC_ode
 {
   using namespace bla;
+  using namespace std;
 
   class NonlinearFunction
   {
@@ -47,7 +48,7 @@ namespace ASC_ode
   public:
     ConstantFunction (VectorView<double> _val) : val(_val) { }
     void Set(VectorView<double> _val) { val = _val; }
-    VectorView<double> Get() const { return val.View(); }
+    VectorView<double> Get() const { return val.Upcast(); }
     size_t DimX() const override { return val.Size(); }
     size_t DimF() const override { return val.Size(); }
     void Evaluate (VectorView<double> x, VectorView<double> f) const override
