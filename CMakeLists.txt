@@ -10,7 +10,6 @@ set (CMAKE_CXX_STANDARD 17)
 # )
 
 
-# include_directories(src external_dependencies/DHL-LinAlg/src)
 include_directories(src external_dependencies/DHL-LinAlg/src external_dependencies/DHL-LinAlg/external_dependencies/HPC/src external_dependencies/DHL-LinAlg/external_dependencies/HPC/concurrentqueue external_dependencies/DHL-LinAlg/external_dependencies/HPC/taskflow)
 link_directories(src external_dependencies/DHL-LinAlg/src external_dependencies/DHL-LinAlg/external_dependencies/HPC/src external_dependencies/DHL-LinAlg/external_dependencies/HPC/concurrentqueue external_dependencies/DHL-LinAlg/external_dependencies/HPC/taskflow)
 
@@ -19,11 +18,10 @@ add_subdirectory (src)
 add_executable (test_ode demos/test_ode.cc external_dependencies/DHL-LinAlg/external_dependencies/HPC/src/parallelcomputingtf.cc external_dependencies/DHL-LinAlg/external_dependencies/HPC/src/timer.cc)
 # target_link_libraries (test_ode PUBLIC bla)
 
-# add_executable (test_newmark demos/test_newmark.cc external_dependencies/DHL-LinAlg/external_dependencies/HPC/src/parallelcomputingtf.cc external_dependencies/DHL-LinAlg/external_dependencies/HPC/src/timer.cc)
+add_executable (test_newmark demos/test_newmark.cc external_dependencies/DHL-LinAlg/external_dependencies/HPC/src/parallelcomputingtf.cc external_dependencies/DHL-LinAlg/external_dependencies/HPC/src/timer.cc)
 # target_link_libraries (test_newmark PUBLIC bla)
 
-# add_executable (test_alpha demos/test_alpha.cc external_dependencies/DHL-LinAlg/external_dependencies/HPC/src/parallelcomputingtf.cc external_dependencies/DHL-LinAlg/external_dependencies/HPC/src/timer.cc)
+add_executable (test_alpha demos/test_alpha.cc external_dependencies/DHL-LinAlg/external_dependencies/HPC/src/parallelcomputingtf.cc external_dependencies/DHL-LinAlg/external_dependencies/HPC/src/timer.cc)
 # target_link_libraries (test_alpha PUBLIC bla)
-
 
 # add_subdirectory (mass_spring)

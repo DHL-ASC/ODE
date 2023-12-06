@@ -10,11 +10,13 @@ class RHS : public NonlinearFunction
   
   void Evaluate (VectorView<double> x, VectorView<double> f) const override
   {
+    std::cout << "f = " << f << std::endl;
     f(0) = -x(0);
   }
   void EvaluateDeriv (VectorView<double> x, MatrixView<double> df) const override
   {
-    df(0) = -1;
+    std::cout << "df = " << std::endl;
+    df(0,0) = -1;
   }
 };
 
@@ -23,7 +25,7 @@ int main()
 {
   double tend = 2*M_PI;
   int steps = 100;
-  Vector<> x { 1, };
+  Vector<> x { 1 };
   Vector<> dx { 0. };
   auto rhs = make_shared<RHS>();
   auto mass = make_shared<IdentityFunction>(1);
