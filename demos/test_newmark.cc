@@ -10,12 +10,10 @@ class RHS : public NonlinearFunction
   
   void Evaluate (VectorView<double> x, VectorView<double> f) const override
   {
-    std::cout << "f = " << f << std::endl;
     f(0) = -x(0);
   }
   void EvaluateDeriv (VectorView<double> x, MatrixView<double> df) const override
   {
-    std::cout << "df = " << std::endl;
     df(0,0) = -1;
   }
 };
