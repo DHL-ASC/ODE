@@ -30,6 +30,28 @@ namespace ASC_ode
       }
   }
 
+  // implicit Euler method for dy/dt = rhs(y)
+  void SolveODE_EE(double tend, int steps,
+                   VectorView<double> y, shared_ptr<NonlinearFunction> rhs,
+                   std::function<void(double,VectorView<double>)> callback = nullptr)
+  {
+    double dt = tend/steps;
+    auto yold = make_shared<ConstantFunction>(y);
+    auto ynew = make_shared<IdentityFunction>(y.Size());
+
+    double t = 0;
+    for (int i = 0; i < steps; i++)
+      {
+        rhs->Evaluate(yold->Get(),y);
+        y*=dt;
+        y+=yold->Get();
+        
+        yold->Set(y);
+        t += dt;
+        if (callback) callback(t, y);
+      }
+  }
+
   
 
   
