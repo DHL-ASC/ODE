@@ -24,4 +24,4 @@ add_executable (test_newmark demos/test_newmark.cc external_dependencies/DHL-Lin
 add_executable (test_alpha demos/test_alpha.cc external_dependencies/DHL-LinAlg/external_dependencies/HPC/src/parallelcomputingtf.cc external_dependencies/DHL-LinAlg/external_dependencies/HPC/src/timer.cc)
 # target_link_libraries (test_alpha PUBLIC bla)
 
-# add_subdirectory (mass_spring)
+add_subdirectory (mass_spring)
